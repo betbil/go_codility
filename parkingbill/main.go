@@ -33,5 +33,5 @@ func Solution(E string, L string) int {
 }
 
 func main() {
-	fmt.Print(Solution("10:00", "13:21"))
+	fmt.Print(Solution("09:30", "13:21"))
 }
