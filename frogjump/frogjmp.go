@@ -25,6 +25,7 @@ func main() {
 	fmt.Println(Solution(5, 5, 2))
 }
 
+// todobetul check this
 func Solution2(X int, Y int, D int) int {
 	// Implement your solution here
 	CNT := 0
