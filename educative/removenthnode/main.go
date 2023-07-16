@@ -73,6 +73,71 @@ func eduSolution_removeNthLastNode(head *EduLinkedListNode, n int) *EduLinkedLis
 	return head
 }
 
+func reverse(head *EduLinkedListNode) *EduLinkedListNode {
+	// Write your code here
+	// Your code will replace this placeholder return statement
+	var pre, next *EduLinkedListNode
+	cur := head
+	for cur != nil {
+		next = cur.next
+		cur.next = pre
+		pre = cur
+		cur = next
+	}
+	fmt.Println("---")
+	fmt.Print("After reversing list")
+	(&EduLinkedList{head: pre}).DisplayLinkedList()
+	return pre
+}
+
+func reverseInternalKGroups(head *EduLinkedListNode, k int) (*EduLinkedListNode, *EduLinkedListNode) {
+	// Write your code here
+	// Your code will replace this placeholder return statement
+	var pre, next *EduLinkedListNode
+	cur := head
+	for cur != nil && k > 0 {
+		next = cur.next
+		cur.next = pre
+		pre = cur
+		cur = next
+		k--
+	}
+	return pre, head
+}
+
+// todobetul check
+func reverseKGroups(head *EduLinkedListNode, k int) *EduLinkedListNode {
+	// Write your code here
+	// Your code will replace this placeholder return statement
+	var before *EduLinkedListNode
+	cur := head
+	groupsize := k
+	for cur != nil {
+		headtmp := cur
+		for cur != nil && k > 0 {
+			cur = cur.next
+			k--
+		}
+
+		if k == 0 {
+			k = groupsize
+			beforeNew, afterNew := reverseInternalKGroups(headtmp, k)
+			afterNew.next = cur
+			if before != nil {
+				before.next = beforeNew
+			} else {
+				head = beforeNew
+			}
+			before = afterNew
+		}
+	}
+
+	fmt.Println("---")
+	fmt.Print("After reversing K group list")
+	(&EduLinkedList{head: head}).DisplayLinkedList()
+	return head
+}
+
 func main() {
 	// Test your function here
 	var eduLinkedList = EduLinkedList{}
@@ -83,5 +148,11 @@ func main() {
 	eduLinkedList2 := EduLinkedList{}
 	eduLinkedList2.CreateLinkedList([]int{69, 8, 49, 106, 116, 112})
 	removeNthLastNode(eduLinkedList2.head, 6)
+	eduLinkedList3 := EduLinkedList{}
+	eduLinkedList3.CreateLinkedList([]int{69, 8, 49, 106, 116, 112})
+	reverse(eduLinkedList3.head)
+	eduLinkedList4 := EduLinkedList{}
+	eduLinkedList4.CreateLinkedList([]int{69, 8, 49, 106, 116, 112})
+	reverseKGroups(eduLinkedList4.head, 3)
 
 }
