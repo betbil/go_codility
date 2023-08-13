@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// todobetul check
 func detectCycle(head *EduLinkedListNode) bool {
 	// Your code will replce this placeholder return statement
 

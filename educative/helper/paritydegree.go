@@ -1,11 +1,10 @@
-package main
+package helper
 
 import (
 	"fmt"
 	"strconv"
 )
 
-// todobetul check
 func Solution(N int) int {
 	// Implement your solution here
 	//16 8 4 2 1
