@@ -2,7 +2,10 @@ module go-solutions
 
 go 1.20
 
-require github.com/gofiber/fiber/v2 v2.48.0
+require (
+	github.com/gofiber/fiber/v2 v2.48.0
+	golang.org/x/tour v0.1.0
+)
 
 require (
 	github.com/andybalholm/brotli v1.0.5 // indirect

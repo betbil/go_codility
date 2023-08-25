@@ -58,10 +58,9 @@ func FormatString(s string) string {
 }
 
 func main() {
-	/*fmt.Println(FormatString("00-44  48 5555 8361"))
+
+	fmt.Println(FormatString("00-44  48 5555 8361"))
 	fmt.Println(FormatString("0 - 22 1985--324"))
 	fmt.Println(FormatString("555372654"))
-
-	*/
 	fmt.Println(FormatString("00444855558361"))
 }
